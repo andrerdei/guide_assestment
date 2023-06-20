@@ -1,0 +1,53 @@
+<footer #footerRef [ngClass]="!isMobile ? 'desktop-styles' : 'mobile-styles'" class="general-styles">
+  <section class="top-footer-section">
+    <div class="section-content">
+      <div class="content-item">
+        <div class="powered-by-div">
+          <span> Powered by </span>
+
+          <a href="https://conteudos.guide.com.br/" target="_blank">
+            <img src="/assets/icons/guide-logo-footer.png">
+          </a>
+        </div>
+      </div>
+
+      <div class="content-item">
+        <ul class="social-media-icon-list">
+          <li>
+            <span class="social-media-span"> Conecte-se conosco</span>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com/guideinvestimentos/?locale=pt_BR" target="_blank">
+              <img src="/assets/icons/social-facebook.svg" alt="Facebook icon"/>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://twitter.com/guideinvest?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+              <img src="/assets/icons/social-twitter.svg" alt="Twitter icon"/>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/guideinvestimentos/" target="_blank">
+              <img src="/assets/icons/social-instagram.svg" alt="Instagram icon"/>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/channel/UCQ84BesUmjPn44iwiMwUA3g" target="_blank">
+              <img src="/assets/icons/social-youtube.svg" alt="Youtube icon"/>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-footer-section">
+    <div class="section-content">
+      <span> © {{ currentYear }} Guide Investimentos | All rights reserved </span>
+    </div>
+  </section>
+</footer>

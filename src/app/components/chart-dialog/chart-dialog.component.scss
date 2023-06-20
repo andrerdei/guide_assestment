@@ -1,0 +1,87 @@
+:host {
+  width: 100%;
+
+}
+
+.general-styles {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+
+  .inner-container {
+    .dialog-section {
+      .dialog-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+
+        .title-container {
+          width: 100%;
+          background-color: #123C3B;
+          padding: 1rem;
+          margin-bottom: 2rem;
+          box-shadow: 0 0 4px 1px rgba(0, 0, 0, .7);
+
+          h2 {
+            color: #ffffff;
+            font-size: 16px;
+            text-align: center;
+            margin: 0;
+          }
+        }
+
+        .action-buttons-container {
+          margin: 1.5rem 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .close-button {
+            width: auto;
+            background-color: orangered;
+            min-width: 120px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin: 0 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  * {
+    font-family: 'OpenSans', sans-serif;
+    color: #1a1a1a;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+
+}
+
+.desktop-styles {
+}
+
+.mobile-styles {
+}
+
+// Renderizado fora dos estilos principais do componente
+::ng-deep {
+  .mdc-dialog__container {
+    margin-top: -3rem;
+
+    .mat-mdc-dialog-surface {
+      overflow: hidden;
+
+      .mat-mdc-dialog-content {
+        overflow: hidden;
+
+        .mat-mdc-form-field-error-wrapper {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

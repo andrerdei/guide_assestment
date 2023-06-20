@@ -1,0 +1,86 @@
+<div [ngClass]="!isMobile ? 'desktop-styles' : 'mobile-styles'" class="general-styles">
+  <div class="inner-container">
+    <section class="table-section mat-elevation-z1">
+      <mat-card class="table-container">
+        <mat-card-title class="title-container">
+          <h2>
+            Tabela de Exibição
+          </h2>
+        </mat-card-title>
+
+        <mat-card-content>
+          <div
+            class="no-results-span-container"
+            *ngIf="!stockData.data || (stockData.filteredData && stockData.filteredData.length === 0)"
+          >
+        <span
+          *ngIf="isTableDataEmpty"
+          class="no-results-span"
+        >
+          Nenhum registro encontrado
+        </span>
+
+            <mat-spinner
+              *ngIf="isTableDataLoading"
+              class="table-loading-spinner"
+              color="primary"
+              mode="indeterminate"
+            >
+            </mat-spinner>
+          </div>
+
+          <mat-table
+            *ngIf="stockData && stockData.data && (stockData.filteredData && stockData.filteredData.length !== 0)"
+            [dataSource]="stockData"
+            fixedLayout='true'
+          >
+            <ng-container matColumnDef="day">
+              <mat-header-cell *matHeaderCellDef>Dia</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{ data.day ? data.day :  '--'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{ data.date ? (data.date | date: 'dd/MM/yyyy') :  '--'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="value">
+              <mat-header-cell *matHeaderCellDef>Valor</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{ data.value ? (data.value | currency: 'BRL') :  '--'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="variationDay">
+              <mat-header-cell *matHeaderCellDef>Variação (D-1)</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{ data.variationDay ? (data.variationDay | percent) :  '--'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="variationFirstDay">
+              <mat-header-cell *matHeaderCellDef>Variação (primeira data)</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{ data.variationFirstDay ? (data.variationFirstDay | percent) :  '--'}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns"
+              class="columns-header"
+            >
+            </mat-header-row>
+
+            <mat-row
+              *matRowDef="let row; columns: displayedColumns;"
+              class="table-rows"
+            >
+            </mat-row>
+          </mat-table>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-paginator
+        class="table-paginator"
+        showFirstLastButtons
+        [pageSizeOptions]="[25, 20, 15]"
+        [disabled]="totalItems === 0"
+      >
+      </mat-paginator>
+    </section>
+  </div>
+</div>

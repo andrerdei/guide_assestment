@@ -1,0 +1,156 @@
+:host {
+  width: 100%;
+}
+
+.general-styles {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .table-section {
+    position: relative;
+
+    .table-container {
+      .title-container {
+        width: 100%;
+        background-color: #123C3B;
+        padding: 1rem;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, .4);
+
+        h2 {
+          color: #ffffff;
+          font-size: 16px;
+          text-align: center;
+          margin: 0;
+        }
+      }
+
+      mat-card-content {
+        padding: 0;
+        overflow: auto;
+
+        .no-results-span-container {
+          width: 100%;
+          min-height: 15vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem 0 1.5rem 0;
+
+          .no-results-span {
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+          }
+        }
+
+        .table-loading-spinner {
+          width: 40px !important;
+          height: 40px !important;
+        }
+
+        mat-header-row,
+        mat-row {
+          min-width: 1000px;
+
+          mat-header-cell {
+            text-align: center;
+            justify-content: center;
+          }
+
+          mat-cell {
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .table-paginator {
+      background-color: #F5F5F5;
+      z-index: 10;
+    }
+
+    ::ng-deep {
+      .mat-mdc-header-cell {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .mat-table {
+        border-collapse: separate;
+        border-spacing: 0 8px;
+      }
+
+      .mat-cell,
+      .mat-header-cell {
+        border-bottom: 1px solid grey;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  }
+
+  * {
+    font-size: 12px;
+    font-family: 'OpenSans', sans-serif;
+    color: #1a1a1a;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+}
+
+.desktop-styles {
+  .table-section {
+    .table-paginator {
+      ::ng-deep {
+        .mat-mdc-paginator-container {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+.mobile-styles {
+  .table-section {
+    .table-paginator {
+      ::ng-deep {
+        .mat-mdc-paginator-container {
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .mat-mdc-paginator-range-actions,
+          .mat-mdc-paginator-page-size {
+            width: 200px;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .mat-mdc-paginator-range-label,
+            .mat-mdc-paginator-page-size-label,
+            .mat-mdc-paginator-page-size-select {
+              margin: 0;
+            }
+
+            .mat-mdc-paginator-page-size-label,
+            .mat-mdc-paginator-range-label {
+              width: 100%;
+              text-align: center;
+            }
+
+            .mat-mdc-form-field {
+              margin: 1rem 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

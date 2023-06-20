@@ -1,0 +1,19 @@
+.application-core-container {
+  width: 100vw;
+  max-width: 1850px;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+  margin-bottom: 125px;
+  padding: 1rem 0;
+
+  .application-core-content {
+    width: 100%;
+    min-height: 70vh;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+}

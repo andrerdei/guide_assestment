@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'OpenSans';
+  src: url('/assets/fonts/open-sans/open-sans-regular.ttf') format('woff2'),
+  url('/assets/fonts/open-sans/open-sans-regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url('/assets/fonts/open-sans/open-sans-bold.ttf') format('woff2'),
+  url('/assets/fonts/open-sans/open-sans-bold.ttf') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.app-root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #fffafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+
+  * {
+    font-family: 'OpenSans', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -1,0 +1,24 @@
+:host {
+  width: 100%;
+}
+
+.general-styles {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  * {
+    font-size: 12px;
+    font-family: 'OpenSans', sans-serif;
+    color: #1a1a1a;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+}
+
+.desktop-styles {
+}
+
+.mobile-styles {
+}

@@ -1,0 +1,28 @@
+<div [ngClass]="!isMobile ? 'desktop-styles' : 'mobile-styles'" class="general-styles">
+  <div class="inner-container">
+    <section class="dialog-section">
+      <div
+              class="dialog-content"
+              mat-dialog-content
+      >
+        <div class="title-container">
+          <h2>
+            Gráfico de Exibição
+          </h2>
+        </div>
+
+        <canvas #priceChart></canvas>
+
+        <div class="action-buttons-container">
+          <button
+                  class="close-button"
+                  mat-button
+                  (click)="handleDialogClose()"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
