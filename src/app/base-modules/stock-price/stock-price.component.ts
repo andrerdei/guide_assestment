@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpErrorResponse} from "@angular/common/http";
-import {CheckScreenStatusService} from "../../services/check-screen-status.service";
+import {CheckScreenStatusService} from "../../services/check-screen-status/check-screen-status.service";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -12,7 +12,7 @@ export class StockPriceComponent implements OnInit, OnDestroy {
 
   // Private Variables
 
-  private checkScreenSubscription!: Subscription;
+  checkScreenSubscription!: Subscription;
 
   // Public Variables
 

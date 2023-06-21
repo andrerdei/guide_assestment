@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {HttpErrorResponse} from "@angular/common/http";
 import {Subscription} from "rxjs";
-import {CheckScreenStatusService} from "../../services/check-screen-status.service";
+import {CheckScreenStatusService} from "../../services/check-screen-status/check-screen-status.service";
 
 @Component({
   selector: 'application-footer-component',
@@ -10,13 +10,10 @@ import {CheckScreenStatusService} from "../../services/check-screen-status.servi
 })
 export class ApplicationFooterComponent implements OnInit, OnDestroy {
 
-  // Private Variables
-
-  private checkScreenSubscription!: Subscription;
-
   // Public Class Variables
 
   @ViewChild('footerRef', {static: true}) footerRef!: ElementRef;
+  public checkScreenSubscription!: Subscription;
   public isMobile: boolean = this.checkScreenStatusService.getScreenSizeAtFirstLoad();
   public currentYear = new Date().getFullYear();
 
@@ -47,7 +44,7 @@ export class ApplicationFooterComponent implements OnInit, OnDestroy {
     });
   }
 
-  private calcWidthConsideringScrollBar(): void {
+  calcWidthConsideringScrollBar(): void {
     const viewportWidth = document.documentElement.clientWidth;
     const windowWidth = document.documentElement.offsetWidth;
     const scrollbarWidth = windowWidth - viewportWidth;

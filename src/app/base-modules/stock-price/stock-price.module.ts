@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { StockPriceComponent } from './stock-price.component';
 import { StockPriceRoutingModule } from './stock-price-routing.module';
-import {StockPriceService} from "../../services/stock-price.service";
+import {StockPriceService} from "../../services/stock-price/stock-price.service";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCardModule} from "@angular/material/card";

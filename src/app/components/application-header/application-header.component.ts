@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
-import {CheckScreenStatusService} from "../../services/check-screen-status.service";
-import {StockPriceService} from "../../services/stock-price.service";
+import {CheckScreenStatusService} from "../../services/check-screen-status/check-screen-status.service";
+import {StockPriceService} from "../../services/stock-price/stock-price.service";
 
 @Component({
   selector: 'application-header-component',
@@ -12,13 +12,10 @@ import {StockPriceService} from "../../services/stock-price.service";
 
 export class ApplicationHeaderComponent implements OnInit, OnDestroy {
 
-  // Private Variables
-
-  private checkScreenSubscription!: Subscription;
-
   // Public Variables
 
   @ViewChild('headerRef', {static: true}) public headerRef!: ElementRef;
+  public checkScreenSubscription!: Subscription;
   public isMobile: boolean = this.checkScreenStatusService.getScreenSizeAtFirstLoad();
 
   // Constructor

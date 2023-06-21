@@ -4,8 +4,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import {StockDataModel} from "../../models/stock-data.model";
 import {MatDialog} from "@angular/material/dialog";
-import {CheckScreenStatusService} from "../../services/check-screen-status.service";
-import {StockPriceService} from "../../services/stock-price.service";
+import {CheckScreenStatusService} from "../../services/check-screen-status/check-screen-status.service";
+import {StockPriceService} from "../../services/stock-price/stock-price.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ChartDialogComponent} from "../chart-dialog/chart-dialog.component";
 
@@ -36,7 +36,7 @@ export class StockPriceTableComponent implements OnInit, OnDestroy {
 
   constructor(
     private dialog: MatDialog,
-    private checkScreenStatusService: CheckScreenStatusService,
+    public checkScreenStatusService: CheckScreenStatusService,
     private stockPriceService: StockPriceService
   ) {
   }
@@ -52,7 +52,7 @@ export class StockPriceTableComponent implements OnInit, OnDestroy {
 
   // Private methods
 
-  private getScreenSize(): void {
+  getScreenSize(): void {
     this.checkScreenSubscription = this.checkScreenStatusService.getScreenSize().subscribe({
       next: (isMobile) => {
         this.isMobile = isMobile;
@@ -64,7 +64,7 @@ export class StockPriceTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  private checkChartSubjectState(): void {
+  checkChartSubjectState(): void {
     this.checkChartSubjectSubscription = this.stockPriceService.getChartSubjectState().subscribe({
       next: (newData) => {
         if (newData)
@@ -77,12 +77,12 @@ export class StockPriceTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  private initializeTable(): void {
+  initializeTable(): void {
     this.stockData = new MatTableDataSource<any>([]);
     this.stockData.paginator = this.paginator;
   }
 
-  private getStockData(): void {
+  getStockData(): void {
     this.isTableDataLoading = true;
     this.isTableDataEmpty = false;
 
@@ -103,7 +103,7 @@ export class StockPriceTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  private handleOpenChartDialog(): void {
+  handleOpenChartDialog(): void {
     const dialogRef = this.dialog.open(ChartDialogComponent, {
       data: [...this.stockData.filteredData],
       width: '90%',
