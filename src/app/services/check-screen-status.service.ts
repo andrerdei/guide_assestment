@@ -24,14 +24,14 @@ export class CheckScreenStatusService {
   private checkScreenSize(): void {
     this.renderer.listen('window', 'resize', () => {
       this.screenWidth = window.innerWidth;
-      this.isMobileSubject.next(this.screenWidth <= 1000);
+      this.isMobileSubject.next(this.screenWidth <= 850);
     });
   }
 
   // Public Methods
 
   public getScreenSizeAtFirstLoad(): boolean {
-    return this.screenWidth <= 1200;
+    return this.screenWidth <= 850;
   }
 
   public getScreenSize(): Observable<boolean> {

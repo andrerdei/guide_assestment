@@ -131,39 +131,24 @@
           top: 30%;
 
           @media(max-width: 1200px) {
-            margin-left: -5rem;
+            margin-left: -3.5rem;
           }
         }
 
         .social-media-icon-list {
           position: absolute;
           top: 38%;
-
-          @media(max-width: 1200px) {
-            margin-right: -4rem;
-          }
         }
       }
-    }
-  }
-
-  .bottom-footer-section {
-    .section-content {
-      flex-direction: row;
     }
   }
 }
 
 .mobile-styles {
-  .top-footer-section,
-  .bottom-footer-section {
-    .section-content {
-      flex-direction: column;
-    }
-  }
-
   .top-footer-section {
     .section-content {
+      flex-direction: column;
+
       .content-item {
         .powered-by-div,
         .social-media-icon-list {

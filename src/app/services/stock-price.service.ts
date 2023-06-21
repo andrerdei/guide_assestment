@@ -21,6 +21,12 @@ export class StockPriceService {
   constructor(private http: HttpClient) {
   }
 
+  // Private methods
+
+  private isValidNumber(value: number): boolean {
+    return !isNaN(value) && isFinite(value);
+  }
+
   // Public methods
 
   public getStockData(): Observable<any> {
@@ -31,18 +37,20 @@ export class StockPriceService {
 
         return prices.map((value: number, index: number) => {
           const variationDay =
-            index === 0
+            index === 0 || !value
               ? 0
               : ((value - prices[index - 1]) / prices[index - 1]) * 100;
 
-          const variationFirstDay = ((value - firstPrice) / firstPrice) * 100;
+          const variationFirstDay = !value
+            ? 0
+            : ((value - firstPrice) / firstPrice) * 100;
 
           return {
-            day: index + 2,
+            day: index + 1,
             date: response.chart.result[0].timestamp[index + 1] * 1000,
-            value,
-            variationDay,
-            variationFirstDay
+            value: value || 0,
+            variationDay: this.isValidNumber(variationDay) ? variationDay : 0,
+            variationFirstDay: this.isValidNumber(variationFirstDay) ? variationFirstDay : 0
           };
         });
       })

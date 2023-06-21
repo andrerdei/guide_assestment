@@ -38,16 +38,6 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-
-        ul {
-          padding: 0;
-
-          li {
-            a {
-              cursor: pointer;
-            }
-          }
-        }
       }
 
       .primary-menu-container {
@@ -63,84 +53,6 @@
             cursor: pointer;
           }
         }
-
-        .page-title-container {
-          width: 100%;
-
-          h2 {
-            color: #2B2B2B;
-            font-size: 14px;
-            text-align: center;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-            white-space: nowrap;
-
-            @media(min-width: 1250px) {
-              position: absolute;
-              top: 102px;
-              right: 0;
-            }
-          }
-        }
-
-        .primary-desktop-nav {
-          width: 100%;
-
-          .primary-desktop-nav-list {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            align-items: center;
-
-            li {
-              a {
-                ::ng-deep {
-                  .menu-item-parent-button {
-                    background-color: #6c6c6e;
-                    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
-                    border-radius: 5px;
-
-                    span {
-                      color: #ffffff;
-                      white-space: nowrap;
-                      padding: 0 1rem;
-                      display: flex;
-                      justify-content: space-between;
-                      align-items: center;
-
-                      img {
-                        width: 13px;
-                        margin-left: .6rem;
-                        margin-top: 0;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        .substitute-desktop-nav-list {
-          .menu-item-separator {
-            height: 15px;
-            width: 2px;
-            background-color: rgba(0, 0, 0, .5);
-            margin-left: .2rem;
-          }
-
-          li {
-            margin-left: .2rem;
-
-            a {
-              span {
-                color: #1a1a1a;
-                white-space: nowrap;
-                text-decoration: underline;
-              }
-            }
-          }
-        }
       }
 
       .menu-section-separator {
@@ -153,33 +65,31 @@
       .secondary-menu-container {
         height: 60px;
         padding: .8rem 0;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
 
-        .secondary-desktop-nav {
-          .secondary-desktop-nav-list {
-            display: flex;
-            margin-left: -1.1rem;
+        h2 {
+          font-weight: bold;
+          margin: 0;
+          padding: 0 .3rem;
+        }
 
-            ::ng-deep {
-              li {
-                margin-right: .3rem;
+        button {
+          width: auto;
+          font-weight: bold;
+          min-width: 120px;
+          padding: 0 .3rem;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
 
-                a {
-                  .menu-item-parent-button {
-                    //--mat-mdc-button-persistent-ripple-color: rgba(0, 0, 0, 0);
-                    //--mat-mdc-button-ripple-color: rgba(0, 0, 0, 0);
-                    white-space: nowrap;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  }
+          img {
+            width: 20px;
+            margin-bottom: -.25rem;
+            margin-left: .3rem;
 
-                  .parent-button-router-link-active {
-                    font-weight: bold;
-                  }
-                }
-              }
+            @media(max-width: 380px) {
+              display: none;
             }
           }
         }
@@ -201,11 +111,4 @@
 }
 
 .mobile-styles {
-}
-
-// Renderizado fora dos estilos principais do componente
-::ng-deep {
-  .mdc-list-item__primary-text {
-    font-size: 14px;
-  }
 }

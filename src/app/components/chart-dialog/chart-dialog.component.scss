@@ -40,7 +40,7 @@
 
           .close-button {
             width: auto;
-            background-color: orangered;
+            background-color: #12857e;
             min-width: 120px;
             color: #ffffff;
             text-transform: uppercase;
@@ -70,7 +70,7 @@
 // Renderizado fora dos estilos principais do componente
 ::ng-deep {
   .mdc-dialog__container {
-    margin-top: -3rem;
+    margin-top: -8rem;
 
     .mat-mdc-dialog-surface {
       overflow: hidden;
@@ -83,5 +83,9 @@
         }
       }
     }
+  }
+
+  .cdk-overlay-backdrop {
+    background-color: rgba(0,0,0,.5);
   }
 }

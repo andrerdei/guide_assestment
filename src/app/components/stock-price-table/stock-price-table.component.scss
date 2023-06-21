@@ -13,9 +13,10 @@
     .table-container {
       .title-container {
         width: 100%;
-        background-color: #123C3B;
+        background-color: #1d5959;
         padding: 1rem;
         box-shadow: 0 0 4px 1px rgba(0, 0, 0, .4);
+        border-radius: 5px 5px 0 0;
 
         h2 {
           color: #ffffff;
@@ -84,16 +85,11 @@
       .mat-cell,
       .mat-header-cell {
         border-bottom: 1px solid grey;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
       }
     }
   }
 
   * {
-    font-size: 12px;
     font-family: 'OpenSans', sans-serif;
     color: #1a1a1a;
     box-sizing: border-box;

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-
 import { StockPriceComponent } from './stock-price.component';
 import { StockPriceRoutingModule } from './stock-price-routing.module';
 import {StockPriceService} from "../../services/stock-price.service";
@@ -16,9 +15,9 @@ import {ComponentsModule} from "../../components/components.module";
   declarations: [StockPriceComponent],
   imports: [
     CommonModule,
+    StockPriceRoutingModule,
     HttpClientModule,
     MatTableModule,
-    StockPriceRoutingModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatCardModule,

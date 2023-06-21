@@ -3,15 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'stock-price',
+    path: '',
     redirectTo: 'stock-price',
     pathMatch: 'full'
   },
   {
     path: 'stock-price',
     loadChildren: () => import('./base-modules/stock-price/stock-price.module').then(m => m.StockPriceModule),
-    // canLoad: [LoginPagesGuard],
-    // canActivate: [LoginPagesGuard]
   },
   {
     path: '**',

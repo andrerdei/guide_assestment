@@ -4,9 +4,9 @@ import {Subscription} from "rxjs";
 import {CheckScreenStatusService} from "../../services/check-screen-status.service";
 
 @Component({
-	selector: 'application-footer-component',
-	templateUrl: './application-footer.component.html',
-	styleUrls: ['./application-footer.component.scss'],
+  selector: 'application-footer-component',
+  templateUrl: './application-footer.component.html',
+  styleUrls: ['./application-footer.component.scss'],
 })
 export class ApplicationFooterComponent implements OnInit, OnDestroy {
 
@@ -14,28 +14,26 @@ export class ApplicationFooterComponent implements OnInit, OnDestroy {
 
   private checkScreenSubscription!: Subscription;
 
-	// Public Class Variables
+  // Public Class Variables
 
-	@ViewChild('footerRef', { static: true }) footerRef!: ElementRef;
-	public isMobile: boolean = this.checkScreenStatusService.getScreenSizeAtFirstLoad();
-	public currentYear = new Date().getFullYear();
+  @ViewChild('footerRef', {static: true}) footerRef!: ElementRef;
+  public isMobile: boolean = this.checkScreenStatusService.getScreenSizeAtFirstLoad();
+  public currentYear = new Date().getFullYear();
 
-	// Constructor
+  // Constructor
 
-	constructor(
-		private checkScreenStatusService: CheckScreenStatusService
-		) {
+  constructor(private checkScreenStatusService: CheckScreenStatusService) {
 
-	}
+  }
 
-	// OnInit
+  // OnInit
 
-	ngOnInit(): void {
-		this.getScreenSize();
-		this.calcWidthConsideringScrollBar();
-	}
+  ngOnInit(): void {
+    this.getScreenSize();
+    this.calcWidthConsideringScrollBar();
+  }
 
-	// Private Methods
+  // Private Methods
 
   private getScreenSize(): void {
     this.checkScreenSubscription = this.checkScreenStatusService.getScreenSize().subscribe({
@@ -49,17 +47,17 @@ export class ApplicationFooterComponent implements OnInit, OnDestroy {
     });
   }
 
-	private calcWidthConsideringScrollBar(): void {
-		const viewportWidth = document.documentElement.clientWidth;
-		const windowWidth = document.documentElement.offsetWidth;
-		const scrollbarWidth = windowWidth - viewportWidth;
+  private calcWidthConsideringScrollBar(): void {
+    const viewportWidth = document.documentElement.clientWidth;
+    const windowWidth = document.documentElement.offsetWidth;
+    const scrollbarWidth = windowWidth - viewportWidth;
 
-		this.footerRef.nativeElement.style.width = `calc(100% - ${scrollbarWidth}px)`;
-	}
+    this.footerRef.nativeElement.style.width = `calc(100% - ${scrollbarWidth}px)`;
+  }
 
-	// OnDestroy
+  // OnDestroy
 
-	ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.checkScreenSubscription.unsubscribe();
-	}
+  }
 }
